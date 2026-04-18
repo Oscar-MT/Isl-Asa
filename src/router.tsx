@@ -9,6 +9,7 @@ import EnVivo from "./routes/en-vivo";
 const router = createBrowserRouter([
   {
     element: <Root />,
+    path: "/Isl-Asa/",
     children: [
       {
         index: true,
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
   },
 ],
 {
-  basename: "/Isl-Asa/",
+  basename: "/",
 });
 
 export default router;
