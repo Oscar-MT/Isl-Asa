@@ -1,13 +1,14 @@
-import heroImage from "@/assets/hero-church.jpg";
+// import heroImage from "@/assets/hero-church.jpg";
+import heroimagen from "@/assets/potada.jpg"
 import { Button } from "@/components/ui/button";
-import { Calendar, Play, MapPin } from "lucide-react";
+import { Calendar, Play } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       <img
-        src={heroImage}
+        src={heroimagen}
         alt="Comunidad de fe reunida en la iglesia"
         className="absolute inset-0 w-full h-full object-cover"
         width={1920}

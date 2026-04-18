@@ -61,16 +61,7 @@ export default function AuthNav() {
       {open && (
         <div className="md:hidden bg-card border-b border-border/30 px-4 pb-4">
           {links.map((l) =>
-            l.isRoute ? (
-              <Link
-                key={l.href}
-                to={l.href}
-                className="block py-3 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
-                onClick={() => setOpen(false)}
-              >
-                🔴 {l.label}
-              </Link>
-            ) : (
+            
               <a
                 key={l.href}
                 href={l.href}
@@ -79,7 +70,7 @@ export default function AuthNav() {
               >
                 {l.label}
               </a>
-            )
+            
           )}
         </div>
       )}
