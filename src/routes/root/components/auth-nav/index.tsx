@@ -21,7 +21,7 @@ export default function AuthNav() {
   return (
      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg  border-border/30">
       <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
-        <a href="/" className="flex items-center gap-2 font-heading font-bold text-xl text-foreground">
+        <a href="/Isl-Asa/" className="flex items-center gap-2 font-heading font-bold text-xl text-foreground">
   <img
     className="h-7 w-7 rounded-lg"
     src={events[0].image}
