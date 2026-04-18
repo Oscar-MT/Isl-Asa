@@ -2,12 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/public/668890685_957409156680038_4949318235099683147_n.jpg" />
+    <link rel="icon" type="image/jpeg" href="/668890685_957409156680038_4949318235099683147_n.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Asamblea de Dios</title>
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      (() => {
+        const url = new URL(window.location.href);
+        const redirectPath = url.searchParams.get("p");
+
+        if (!redirectPath) {
+          return;
+        }
+
+        const searchParams = new URLSearchParams(url.search);
+        const forwardedQuery = searchParams.get("q");
+        const normalizedPath =
+          redirectPath === "/" ? "" : redirectPath.startsWith("/") ? redirectPath : `/${redirectPath}`;
+        const query = forwardedQuery ? `?${forwardedQuery}` : "";
+        const resolvedPath = normalizedPath ? `${url.pathname.replace(/\/$/, "")}${normalizedPath}` : url.pathname;
+
+        window.history.replaceState(null, "", `${resolvedPath}${query}${url.hash}`);
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -1,15 +1,7 @@
-import eventImage1 from "@/assets/event1.jpeg";
-import eventImage2 from "@/assets/event2.jpeg"
-import eventImage3 from "@/assets/event3.jpeg"
 import { Button } from "@/components/ui/button";
 import { CalendarDays } from "lucide-react";
-
-const events = [
-  { date: "16 Abr", title: "Culto de oración", description: "Un tiempo especial de adoración donde nos reunimos para exaltar a Dios, rendir nuestros corazones y ser renovados en Su presencia.", image: eventImage1, ubicacion: "Iglesia de Miramar" },
-  { date: "18 Abr", title: "Juventud Cristiana", description: "Fin de semana de conexión, aventura y crecimiento espiritual.", image: eventImage2, ubicacion: "Iglesia de Miramar" },
-  { date: "17 Abr", title: "Mujeres de fé", description: "Mujeres firmes, valientes y llenas del Espíritu, que se levantan con fe para impactar sus familias, su iglesia y su comunidad.", image: eventImage3, ubicacion: "Iglesia de Miramar" },
-  
-];
+import { Link } from "react-router-dom";
+import { events } from "@/routes/event/data";
 
 const EventsSection = () => {
   return (
@@ -46,13 +38,13 @@ const EventsSection = () => {
               <div className="p-6">
                 <h3 className="font-heading text-lg font-semibold text-foreground mb-2">{e.title}</h3>
                 <p className="text-muted-foreground text-sm mb-4">{e.description}</p>
-                {e.ubicacion && (
+                {e.location && (
                   <p className="text-muted-foreground text-sm mb-4">
-                    <strong>Sede:</strong> {e.ubicacion}
+                    <strong>Sede:</strong> {e.location}
                   </p>
                 )}
-                <Button variant="outline" className="rounded-full border-border text-foreground hover:bg-secondary text-sm">
-                  <a href="/event">Más información</a>
+                <Button asChild variant="outline" className="rounded-full border-border text-foreground hover:bg-secondary text-sm">
+                  <Link to="/event">Más información</Link>
                 </Button>
               </div>
             </div>

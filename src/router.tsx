@@ -5,41 +5,42 @@ import Home from "./routes/home";
 import NotFound from "./routes/not-found";
 import Sedes from "./routes/sedes/Sedes";
 import EnVivo from "./routes/en-vivo";
+import EventPage from "./routes/event";
 
 const router = createBrowserRouter([
   {
     element: <Root />,
-    path: "/Isl-Asa/",
+    path: "/",
     children: [
       {
         index: true,
         element: <Home />,
       },
       {
-        path: "/about",
+        path: "about",
         element: <AboutSection />,
       },
       {
-        path: "/sedes",
-        element: <Sedes/>
+        path: "sedes",
+        element: <Sedes />,
       },
       {
-        path: "/event",
-        element: <></>
+        path: "event",
+        element: <EventPage />,
       },
       {
-        path: "/en-vivo",
-        element: <EnVivo/>
+        path: "en-vivo",
+        element: <EnVivo />,
       },
       {
-        path: "/*",
+        path: "*",
         element: <NotFound />,
-      }
+      },
     ],
   },
 ],
 {
-  basename: "/",
+  basename: import.meta.env.BASE_URL,
 });
 
 export default router;
