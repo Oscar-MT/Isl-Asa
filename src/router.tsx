@@ -36,6 +36,9 @@ const router = createBrowserRouter([
       }
     ],
   },
-]);
+],
+{
+  basename: "/Isl-Asa/",
+});
 
 export default router;
