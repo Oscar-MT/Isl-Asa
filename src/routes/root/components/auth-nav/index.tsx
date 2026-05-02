@@ -1,67 +1,78 @@
-import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
+import { Menu, X } from "lucide-react";
 import eventImage from "@/assets/668890685_957409156680038_4949318235099683147_n.jpg";
 
 const links = [
+  { label: "Inicio", to: "/" },
   { label: "Sedes", to: "/sedes" },
-  { label: "Predicaciones", to: { pathname: "/", hash: "#predicaciones" } },
+  { label: "Declaraciones", to: "/declaraciones-de-fe" },
   { label: "En Vivo", to: "/en-vivo" },
 ];
 
-const events = [
-  { date: "12 Abr", title: "Noche de Alabanza", description: "Una noche especial de adoración y música.", image: eventImage },
-  { date: "20 Abr", title: "Retiro de Jóvenes", description: "Fin de semana de conexión, aventura y crecimiento espiritual.", image: eventImage },
-  { date: "5 May", title: "Día de la Familia", description: "Actividades, comida y diversión para toda la familia.", image: eventImage },
-];
-
 export default function AuthNav() {
-    const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
-  return (
-     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg  border-border/30">
-      <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
-        <Link to="/" className="flex items-center gap-2 font-heading font-bold text-xl text-foreground">
-  <img
-    className="h-7 w-7 rounded-lg"
-    src={events[0].image}
-    alt={events[0].title}
-  />
-  Asamblea de Dios
-</Link>
-        <div className="hidden md:flex items-center gap-8">
+  return ( 
+    <nav className="w-full h-14 fixed z-50 border-border/30 px-4 md:px-10 bg-black/80 backdrop-blur">
+      
+      <div className="flex h-16 items-center justify-between w-full">
+
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2 font-bold text-xl text-white/80">
+          <img
+            className="h-7 w-7 rounded-lg"
+            src={eventImage}
+            alt="logo"
+          />
+          Asamblea de Dios
+        </Link>
+
+        {/* Desktop */}
+        <div className="hidden md:flex items-center gap-2 text-white">
           {links.map((l) => (
-              <Link
-                key={l.label}
-                to={l.to}
-                className="text-sm font-medium text-blue-500 bg-blue-500/10. px-3 py-1 rounded-full hover:bg-primary/20 transition-colors"
-              >
-                {l.label}
-              </Link>
-            ))}
+            <NavLink
+              key={l.label}
+              to={l.to}
+              className={({ isActive }) =>
+                isActive
+                  ? "bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-[length:200%_200%] animate-gradient px-3 py-1 rounded-full"
+                  : "text-sm font-medium bg-black/30 px-3 py-1 rounded-full hover:bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"
+              }
+            >
+              {l.label}
+            </NavLink>
+          ))}
         </div>
+
+        {/* Mobile button */}
         <button
-          className="md:hidden text-foreground"
           onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
+          className="md:hidden text-white"
         >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {open ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
+
+      {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-card border-b border-border/30 px-4 pb-4">
+        <div className="md:hidden mt-2 bg-black/80 backdrop-blur-md rounded-xl p-4 flex flex-col gap-3">
           {links.map((l) => (
-              <Link
-                key={l.label}
-                to={l.to}
-                className="block py-3 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                onClick={() => setOpen(false)}
-              >
-                {l.label}
-              </Link>
+            <NavLink
+              key={l.label}
+              to={l.to}
+              onClick={() => setOpen(false)}
+              className={({ isActive }) =>
+                isActive
+                  ? "bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 px-4 py-2 rounded-lg text-white"
+                  : "text-white/80 px-4 py-2 rounded-lg hover:bg-white/10"
+              }
+            >
+              {l.label}
+            </NavLink>
           ))}
         </div>
       )}
     </nav>
   );
-};
+}

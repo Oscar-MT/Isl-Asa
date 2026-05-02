@@ -35,7 +35,7 @@ export const locations = [
     phone: "+591 73012345",
     image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
     mapUrl: "https://maps.google.com/?q=Calle+Murillo+530+El+Alto",
-    mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d293.3159571733213!2d-71.31547787145189!3d-17.65163371667258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91445b469907080d%3A0x832c52335b702b5c!2sIglesia%20Asamblea%20de%20Dios%20en%20el%20Per%C3%BA%20-%20ADP%20ILO!5e1!3m2!1ses-419!2spe!4v1776115743003!5m2!1ses-419!2spe",
+    mapEmbed: "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d276.63225788486994!2d-71.31048396922833!3d-17.635892534692807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses-419!2spe!4v1776573568424!5m2!1ses-419!2spe",
     schedules: [
       { day: "Martes", time: "6:00 PM", service: "Culto de doctrina" },
       { day: "Jueves", time: "6:00 PM", service: "Círculo de oración virtuosas del rey" },
