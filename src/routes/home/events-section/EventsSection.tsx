@@ -5,8 +5,7 @@ import { useState } from "react";
 
 const EventsSection = () => {
 
- const [activeIndex, setActiveIndex] = useState<number | null>(null);
- const [selectedEvent, setSelectedEvent] = useState<null | typeof events[0]>(null);
+const [selectedEvent, setSelectedEvent] = useState<null | typeof events[0]>(null);
 
   return (
     <section id="eventos" className="section-padding bg-slate-200">
@@ -78,7 +77,6 @@ const EventsSection = () => {
   </div>
 )}
           {events.map((e, i) => {
-            const isOpen = activeIndex === i
             return (
               <div
                 key={i}
@@ -118,7 +116,7 @@ const EventsSection = () => {
                     
                     rounded-full border-border text-sm"
                   >
-                    {isOpen ? "Menos" : "Más información"}
+                    Más información
                   </Button>
                 </div>
                 {/* </Button> */}
