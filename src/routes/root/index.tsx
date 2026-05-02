@@ -8,7 +8,6 @@ export default function Root() {
    <div className="min-h-screen bg-background">
         <AuthNav />
           <Outlet />
-          <ScrollRestoration />
         <Footer />
     </div>
   );
