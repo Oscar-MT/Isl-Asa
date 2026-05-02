@@ -1,4 +1,4 @@
-import { Outlet, ScrollRestoration } from "react-router";
+import { Outlet } from "react-router";
 import AuthNav from "./components/auth-nav";
 import Footer from "./components/footer";
 
