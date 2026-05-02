@@ -5,7 +5,7 @@ const URL = "100051659992420%2Fvideos%2Fpcb.1514035653661753%2F2380653982444017&
 
 const DiscursoSection = () => {
   return (
-    <section id="predicaciones" className="section-padding bg-background">
+    <section id="predicaciones" className="section-padding bg-slate-100">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">

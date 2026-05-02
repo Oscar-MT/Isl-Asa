@@ -6,6 +6,7 @@ import NotFound from "./routes/not-found";
 import Sedes from "./routes/sedes/Sedes";
 import EnVivo from "./routes/en-vivo";
 import EventPage from "./routes/event";
+import DeclaracionesDeFePage from "./routes/declaraciones-de-fe";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "sedes",
         element: <Sedes />,
+      },
+      {
+        path: "declaraciones-de-fe",
+        element: <DeclaracionesDeFePage />,
       },
       {
         path: "event",

@@ -17,7 +17,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contacto" className="section-padding bg-secondary">
+    <section id="contacto" className="section-padding bg-slate-950">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
