@@ -6,51 +6,51 @@
 
 @layer base {
   :root {
-    --background: 210 100% 99%;
-    --foreground: 210 29% 24%; /* darkblue */
+    --background: 222 47% 8%;
+    --foreground: 210 40% 96%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 210 29% 24%;
+    --card: 222 42% 12%;
+    --card-foreground: 210 40% 96%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 29% 24%;
+    --popover: 222 42% 12%;
+    --popover-foreground: 210 40% 96%;
 
-    --primary: 210 66% 55%;/* blue-500 */
-    --primary-foreground: 0 0% 100%; 
+    --primary: 204 91% 62%;
+    --primary-foreground: 222 47% 8%;
 
-    --secondary: 210 100% 96%;
-    --secondary-foreground: 210 29% 24%;
+    --secondary: 217 33% 18%;
+    --secondary-foreground: 210 40% 96%;
 
-    --muted: 210 100% 96%; /* blue-50 */
-    --muted-foreground: 210 15% 50%;
+    --muted: 217 33% 18%;
+    --muted-foreground: 214 22% 72%;
 
-    --accent: 210 100% 92%;
-    --accent-foreground: 210 29% 24%;
+    --accent: 217 33% 22%;
+    --accent-foreground: 210 40% 96%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 30% 90%;
-    --input: 210 30% 90%;
-    --ring: 210 66% 55%;
+    --border: 217 25% 24%;
+    --input: 217 25% 24%;
+    --ring: 204 91% 62%;
 
     --radius: 0.75rem;
 
-    --sky-soft: 210 100% 97%;
-    --sky-light: 210 100% 92%;
-    --sky-main: 204 100% 78%;
-    --blue-pro: 210 66% 55%;
-    --blue-dark: 210 55% 30%;
-    --blue-hover: 210 60% 47%;
+    --sky-soft: 218 34% 15%;
+    --sky-light: 214 32% 23%;
+    --sky-main: 204 91% 62%;
+    --blue-pro: 204 91% 62%;
+    --blue-dark: 212 72% 22%;
+    --blue-hover: 204 82% 52%;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 210 66% 55%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 100% 96%;
-    --sidebar-accent-foreground: 210 29% 24%;
-    --sidebar-border: 210 30% 90%;
-    --sidebar-ring: 210 66% 55%;
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 204 91% 62%;
+    --sidebar-primary-foreground: 222 47% 8%;
+    --sidebar-accent: 217 33% 18%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 217 25% 24%;
+    --sidebar-ring: 204 91% 62%;
   }
 }
 
@@ -96,6 +96,15 @@
   .stagger-3 { animation-delay: 0.3s; }
   .stagger-4 { animation-delay: 0.4s; }
   .stagger-5 { animation-delay: 0.5s; }
+
+  @keyframes event-carousel {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-50% - 0.75rem));
+    }
+  }
 }
 
 html {

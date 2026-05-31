@@ -9,7 +9,7 @@ const LocationsSection = () => {
   };
 
   return (
-    <section id="sedes" className="section-padding bg-slate-300">
+    <section id="sedes" className="section-padding bg-slate-950">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
@@ -30,7 +30,7 @@ const LocationsSection = () => {
             return (
               <div
                 key={loc.name}
-                className="bg-white rounded-2xl overflow-hidden shadow-sm border hover:shadow-md transition-all duration-300"
+                className="bg-card rounded-2xl overflow-hidden shadow-sm border border-border/70 hover:shadow-md transition-all duration-300"
               >
                 
                 {/* Title */}

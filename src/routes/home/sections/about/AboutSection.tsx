@@ -1,5 +1,6 @@
 import { Heart, Target, Users, BookOpen } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
+import TestimonialsCarousel from "./components/TestimonialsCarousel";
 
 const values = [
   { icon: Heart, title: "Amor", description: "Vivimos el amor de Dios en cada acción y relación." },
@@ -12,7 +13,7 @@ const AboutSection = () => {
   const { ref, isVisible } = useInView();
 
   return (
-    <section id="nosotros" className="section-padding bg-slate-400/50 mt-20">
+    <section id="nosotros" className="section-padding bg-slate-950 mt-20">
       <div ref={ref} className="max-w-6xl mx-auto text-center">
 
         {/* Header */}
@@ -34,7 +35,7 @@ const AboutSection = () => {
             <div
               key={item.title}
               className={`
-                bg-card rounded-2xl p-8 shadow-sm border border-border/50
+                bg-card rounded-2xl p-8 shadow-sm border border-border/70
                 transition-all duration-700
                 hover:shadow-lg hover:-translate-y-2
                 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
@@ -55,6 +56,8 @@ const AboutSection = () => {
             </div>
           ))}
         </div>
+
+        <TestimonialsCarousel />
 
       </div>
     </section>

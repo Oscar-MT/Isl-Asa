@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router";
 import Root from "./routes/root";
-import AboutSection from "./routes/home/about-Section/AboutSection";
+import { AboutSection } from "./routes/home/sections";
 import Home from "./routes/home";
 import NotFound from "./routes/not-found";
-import Sedes from "./routes/sedes/Sedes";
+import Sedes from "./routes/sedes";
 import EnVivo from "./routes/en-vivo";
 import EventPage from "./routes/event";
 import DeclaracionesDeFePage from "./routes/declaraciones-de-fe";

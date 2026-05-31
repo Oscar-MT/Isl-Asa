@@ -1,5 +1,5 @@
-import LocationsSection from "./location-Section/index";
-import MinistriesSection from "./Ministries-Section/index";
+import LocationsSection from "./sections/locations";
+import MinistriesSection from "./sections/ministries";
 
 const Sedes = () => {
   return (

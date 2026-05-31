@@ -1,8 +1,10 @@
-// import ContactSection from "./contact-Section/ContactSection";
-import AboutSection from "./about-Section/AboutSection";
-import EventsSection from "./events-section/EventsSection";
-import HeroSection from "./hero-Sections/HeroSection";
-import DiscursoSection from "./discurso-Section/DiscursoSection";
+// import { ContactSection } from "./sections";
+import {
+  AboutSection,
+  DiscursoSection,
+  EventsSection,
+  HeroSection,
+} from "./sections";
 
 export default function Home() {
  

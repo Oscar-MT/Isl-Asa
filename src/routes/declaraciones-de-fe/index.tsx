@@ -1,151 +1,220 @@
+import { Button } from "@/components/ui/button";
+import {
+  BookOpen,
+  ChevronRight,
+  Church,
+  Flame,
+  HeartHandshake,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
 import { useState } from "react";
-import testimonio1 from "@/assets/testimo.jpeg";
+import { Link } from "react-router-dom";
 
-interface Testimonial {
-  id: number;
-  name: string;
-  role?: string;
-  image: string;
-  video: string;
-  description: string;
-}
-
-const testimonials: Testimonial[] = [
+const faithStatements = [
   {
-    id: 1,
-    name: "María López",
-    role: "Miembro de la iglesia",
-    image: testimonio1,
-    video: "https://www.youtube.com/embed/VIDEO_ID_1",
-    description:
-      "Mi vida cambió completamente después de encontrar este lugar. Ahora tengo propósito y paz.",
+    title: "La Biblia",
+    icon: BookOpen,
+    summary:
+      "Creemos que la Palabra de Dios es nuestra guia de fe, vida y servicio.",
+    detail:
+      "La Escritura nos revela el caracter de Dios, nos ensena a vivir con sabiduria y orienta cada decision de la iglesia.",
   },
   {
-    id: 2,
-    name: "Carlos Ramos",
-    role: "Voluntario",
-    image: testimonio1,
-    video: "https://www.youtube.com/embed/VIDEO_ID_2",
-    description:
-      "Aprendí a servir y amar a los demás de una manera que nunca imaginé.",
+    title: "Dios eterno",
+    icon: Sparkles,
+    summary:
+      "Creemos en un Dios vivo, santo, amoroso y presente en la historia humana.",
+    detail:
+      "Reconocemos a Dios como creador, sustentador y redentor, digno de adoracion, obediencia y confianza.",
   },
   {
-    id: 3,
-    name: "Juan Pérez",
-    role: "Miembro de la iglesia",
-    image: testimonio1,
-    video: "https://www.youtube.com/embed/VIDEO_ID_3",
-    description:
-      "Aprendí a servir y amar a los demás de una manera que nunca imaginé.",
+    title: "Jesucristo",
+    icon: ShieldCheck,
+    summary:
+      "Creemos que Jesucristo es Salvador, Senor y esperanza para toda persona.",
+    detail:
+      "Su vida, muerte y resurreccion anuncian perdon, restauracion y una nueva vida para quienes ponen su fe en El.",
   },
   {
-    id: 4,
-    name: "Valeria",
-    role: "Voluntario",
-    image: testimonio1,
-    video: "https://www.youtube.com/embed/VIDEO_ID_4",
-    description:
-      "Aprendí a servir y amar a los demás de una manera que nunca imaginé.",
+    title: "Espiritu Santo",
+    icon: Flame,
+    summary:
+      "Creemos que el Espiritu Santo fortalece, consuela y capacita a la iglesia.",
+    detail:
+      "Su obra forma nuestro caracter, aviva nuestra fe y nos impulsa a servir con amor y poder espiritual.",
   },
   {
-    id: 5,
-    name: "Maria Fernanda",
-    role: "Voluntario",
-    image: testimonio1,
-    video: "https://www.youtube.com/embed/VIDEO_ID_5",
-    description:
-      "Aprendí a servir y amar a los demás de una manera que nunca imaginé.",
+    title: "La iglesia",
+    icon: Church,
+    summary:
+      "Creemos que la iglesia es una familia llamada a adorar, discipular y servir.",
+    detail:
+      "Como comunidad de fe, caminamos juntos, cuidamos unos de otros y compartimos el evangelio con nuestro entorno.",
+  },
+  {
+    title: "La mision",
+    icon: HeartHandshake,
+    summary:
+      "Creemos que nuestra fe se expresa en amor practico y servicio a las personas.",
+    detail:
+      "Anhelamos que cada vida conozca a Cristo, crezca en la Palabra y descubra su proposito en Dios.",
   },
 ];
 
-export default function TestimonialsSection() {
-  const [active, setActive] = useState<Testimonial | null>(null);
+export default function DeclaracionesDeFePage() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeStatement = faithStatements[activeIndex];
 
   return (
-    <section className="py-20 bg-black/10 backdrop-blur-sm">
-      <div className="container mx-auto px-4">
-        
-        {/* Título */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">Testimonios</h2>
-          <p className="text-gray-600">
-            Historias reales de personas transformadas
-          </p>
-        </div>
-
-        {/* Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((t) => (
-            <div
-              key={t.id}
-              className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition cursor-pointer"
-              onClick={() => setActive(t)}
-            >
-              <img
-                src={t.image}
-                alt={t.name}
-                className="w-20 h-20 rounded-full object-cover mx-auto mb-4"
-              />
-
-              <h3 className="text-xl font-semibold text-center">
-                {t.name}
-              </h3>
-
-              {t.role && (
-                <p className="text-sm text-gray-500 text-center mb-3">
-                  {t.role}
-                </p>
-              )}
-
-              <p className="text-gray-600 text-center text-sm line-clamp-3">
-                {t.description}
-              </p>
-
-              <button className="mt-4 text-blue-600 text-sm block mx-auto">
-                Ver testimonio
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Modal */}
-      {active && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-          <div className="bg-white rounded-2xl max-w-3xl w-full p-6 relative">
-            
-            <button
-              onClick={() => setActive(null)}
-              className="absolute top-4 right-4 text-gray-500"
-            >
-              ✕
-            </button>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              
-              {/* Video */}
-              <div className="w-full h-[250px] md:h-full">
-                <iframe
-                  className="w-full h-full rounded-xl"
-                  src={active.video}
-                  title={active.name}
-                  allowFullScreen
-                ></iframe>
-              </div>
-
-              {/* Info */}
-              <div>
-                <h3 className="text-2xl font-bold mb-2">
-                  {active.name}
-                </h3>
-                <p className="text-gray-500 mb-4">{active.role}</p>
-                <p className="text-gray-700">{active.description}</p>
-              </div>
-
+    <main className="min-h-screen bg-background pt-24">
+      <section className="relative overflow-hidden bg-slate-950 px-4 py-20 text-white md:py-24">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(245,158,11,0.18),transparent_30%),radial-gradient(circle_at_80%_30%,rgba(59,130,246,0.18),transparent_28%)]" />
+        <div className="relative mx-auto max-w-6xl">
+          <div className="max-w-3xl">
+            <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-amber-200 backdrop-blur">
+              <BookOpen className="h-4 w-4" />
+              Nuestra base doctrinal
+            </p>
+            <h1 className="mt-6 font-heading text-4xl font-bold leading-tight md:text-6xl">
+              Declaraciones de fe
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/80">
+              Estas convicciones sostienen nuestra adoracion, nuestra comunidad
+              y la manera en que servimos a Dios y a las personas.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button
+                asChild
+                className="rounded-full bg-white px-7 text-slate-950 hover:bg-amber-200"
+              >
+                <a href="#declaraciones">Leer declaraciones</a>
+              </Button>
+              <Button
+                asChild
+                className="rounded-full border border-white/25 bg-white/10 px-7 text-white hover:bg-white/20"
+              >
+                <Link to="/sedes">Visitar una sede</Link>
+              </Button>
             </div>
           </div>
         </div>
-      )}
-    </section>
+      </section>
+
+      <section id="declaraciones" className="section-padding">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-10 grid gap-6 md:grid-cols-[0.85fr_1.15fr] md:items-end">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary">
+                Lo que creemos
+              </p>
+              <h2 className="mt-3 font-heading text-3xl font-bold text-foreground md:text-4xl">
+                Fe clara para una vida con proposito
+              </h2>
+            </div>
+            <p className="text-base leading-7 text-muted-foreground md:text-lg">
+              Explora cada declaracion para ver como se conecta con nuestra
+              vida diaria como iglesia.
+            </p>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="grid gap-3">
+              {faithStatements.map((statement, index) => (
+                <button
+                  key={statement.title}
+                  type="button"
+                  onClick={() => setActiveIndex(index)}
+                  className={`group flex items-center gap-4 rounded-lg border p-4 text-left transition-all ${
+                    activeIndex === index
+                      ? "border-primary bg-primary text-primary-foreground shadow-lg shadow-primary/20"
+                      : "border-border/70 bg-card hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-sm"
+                  }`}
+                >
+                  <span
+                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-lg ${
+                      activeIndex === index
+                        ? "bg-white/15 text-white"
+                        : "bg-secondary text-primary"
+                    }`}
+                  >
+                    <statement.icon className="h-5 w-5" />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block font-heading text-lg font-semibold">
+                      {statement.title}
+                    </span>
+                    <span
+                      className={`mt-1 block text-sm leading-6 ${
+                        activeIndex === index
+                          ? "text-white/80"
+                          : "text-muted-foreground"
+                      }`}
+                    >
+                      {statement.summary}
+                    </span>
+                  </span>
+                  <ChevronRight
+                    className={`h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1 ${
+                      activeIndex === index ? "text-white" : "text-primary"
+                    }`}
+                  />
+                </button>
+              ))}
+            </div>
+
+            <article className="rounded-lg border border-border/70 bg-card p-6 shadow-sm md:p-8">
+              <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-secondary text-primary">
+                <activeStatement.icon className="h-7 w-7" />
+              </div>
+              <h3 className="mt-6 font-heading text-3xl font-bold text-foreground">
+                {activeStatement.title}
+              </h3>
+              <p className="mt-4 text-lg leading-8 text-muted-foreground">
+                {activeStatement.summary}
+              </p>
+              <div className="mt-6 rounded-lg bg-secondary/70 p-5">
+                <p className="text-base leading-8 text-foreground">
+                  {activeStatement.detail}
+                </p>
+              </div>
+              <div className="mt-8 grid gap-4 border-t border-border pt-6 sm:grid-cols-3">
+                {["Adoracion", "Comunidad", "Servicio"].map((item) => (
+                  <div key={item} className="rounded-lg bg-background p-4">
+                    <p className="text-sm font-semibold text-primary">{item}</p>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      Una fe que se vive cada semana.
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-4 pb-20">
+        <div className="mx-auto max-w-6xl rounded-lg bg-slate-950 p-8 text-center text-white md:p-10">
+          <h2 className="font-heading text-2xl font-bold md:text-3xl">
+            Ven y conoce nuestra comunidad
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-white/75">
+            La fe tambien se entiende mejor caminando con otros. Te esperamos
+            en nuestras reuniones y actividades.
+          </p>
+          <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+            <Button asChild className="rounded-full bg-white text-slate-950 hover:bg-amber-200">
+              <Link to="/sedes">Ver sedes</Link>
+            </Button>
+            <Button
+              asChild
+              className="rounded-full border border-white/25 bg-white/10 text-white hover:bg-white/20"
+            >
+              <Link to="/">Volver al inicio</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
